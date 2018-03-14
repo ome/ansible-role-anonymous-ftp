@@ -1,0 +1,24 @@
+---
+# defaults file for anonymous-ftp
+
+# Required: data directory for uploads. Parent directory must exist
+#anonymous_ftp_incoming_data_dir:
+
+# Group name/id for the uploads data diredctory
+anonymous_ftp_incoming_group: root
+
+# Externally facing IP of the FTP server (advertised by the FTP server)
+anonymous_ftp_public_address: "{{ ansible_default_ipv4.address }}"
+
+# List of emails for anonymous access
+anonymous_ftp_emails: []
+
+# Published port for incoming FTP
+anonymous_ftp_port: 21
+# Passive port range
+anonymous_ftp_pasv_min_port: 32022
+anonymous_ftp_pasv_max_port: 32031
+
+anonymous_ftp_banner_text: |
+  Welcome to the FTP upload service.
+  Please upload files into "incoming/".
