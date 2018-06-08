@@ -4,7 +4,10 @@
 # Required: data directory for uploads. Parent directory must exist
 #anonymous_ftp_incoming_data_dir:
 
-# Group name/id for the uploads data diredctory
+# Docker image to use for the FTP server
+anonymous_ftp_image: openmicroscopy/vsftpd-anonymous-upload:0.1.0
+
+# Group name/id for the uploads data directory
 anonymous_ftp_incoming_group: root
 
 # Externally facing IP of the FTP server (advertised by the FTP server)

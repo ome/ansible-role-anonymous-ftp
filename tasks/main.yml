@@ -47,7 +47,7 @@
 - name: Run docker vsftpd
   become: yes
   docker_container:
-    image: openmicroscopy/vsftpd-anonymous-upload:0.1.0
+    image: {{ anonymous_ftp_image }}
     name: vsftpd
     published_ports: "{{ anonymous_ftp_published_ports }}"
     state: started
