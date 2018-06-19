@@ -21,6 +21,7 @@ Required:
 - `anonymous_ftp_incoming_data_dir`: Directory for incoming files
 
 Optional:
+- `anonymous_ftp_image`: Docker image for the FTP server, default `openmicroscopy/vsftpd-anonymous-upload:0.1.0`
 - `anonymous_ftp_incoming_group`: Group name/id for the uploads data directory, default `root`
 - `anonymous_ftp_public_address`: Externally facing IP of the FTP server, will be guessed but it is strongly recommended that you set this
 - `anonymous_ftp_emails`: List of emails for anonymous password, default empty
