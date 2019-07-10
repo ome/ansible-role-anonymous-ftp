@@ -1,8 +1,8 @@
 Anonymous FTP
 =============
 
-[![Build Status](https://travis-ci.org/openmicroscopy/ansible-role-anonymous-ftp.svg)](https://travis-ci.org/openmicroscopy/ansible-role-anonymous-ftp)
-[![Ansible Role](https://img.shields.io/ansible/role/24437.svg)](https://galaxy.ansible.com/openmicroscopy/anonymous-ftp/)
+[![Build Status](https://travis-ci.org/ome/ansible-role-anonymous-ftp.svg)](https://travis-ci.org/ome/ansible-role-anonymous-ftp)
+[![Ansible Role](https://img.shields.io/ansible/role/41954.svg)](https://galaxy.ansible.com/ome/anonymous_ftp/)
 
 
 Anonymous FTP using VSFTPD in Docker.
@@ -39,8 +39,8 @@ Example playbook
 ----------------
     - hosts: all
       roles:
-        - role: openmicroscopy.docker
-        - role: openmicroscopy.anonymous-ftp
+        - role: ome.docker
+        - role: ome.anonymous_ftp
           anonymous_ftp_incoming_data_dir: /srv/ftp-incoming
           anonymous_ftp_public_address: 10.0.0.1
           anonymous_ftp_emails:

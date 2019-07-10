@@ -1,7 +1,7 @@
 ---
 - hosts: all
   roles:
-    - role: openmicroscopy.docker
+    - role: ome.docker
     - role: ansible-role-anonymous-ftp
       anonymous_ftp_incoming_data_dir: /srv/ftp-incoming
       anonymous_ftp_public_address: 127.0.0.1
