@@ -1,24 +1,26 @@
 ---
-- hosts: all
+- name: Converge
+  hosts: all
   roles:
     - role: ome.docker
+
     - role: ansible-role-anonymous-ftp
       anonymous_ftp_incoming_data_dir: /srv/ftp-incoming
       anonymous_ftp_public_address: 127.0.0.1
       anonymous_ftp_emails:
-      - allowed@example.org
+        - allowed@example.org
 
   # Tools for testing
   tasks:
     - name: Install ftp client
-      become: yes
+      become: true
       yum:
         name: ftp
         state: present
 
     - name: Copy test upload script
-      become: yes
+      become: true
       copy:
-        src: tests/upload_test.sh
+        src: upload_test.sh
         dest: /upload_test.sh
         mode: 0755
