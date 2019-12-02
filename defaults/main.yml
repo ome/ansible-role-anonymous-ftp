@@ -2,7 +2,7 @@
 # defaults file for anonymous-ftp
 
 # Required: data directory for uploads. Parent directory must exist
-#anonymous_ftp_incoming_data_dir:
+# anonymous_ftp_incoming_data_dir:
 
 # Docker image to use for the FTP server
 anonymous_ftp_image: openmicroscopy/vsftpd-anonymous-upload:0.1.0

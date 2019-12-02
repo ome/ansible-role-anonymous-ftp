@@ -2,14 +2,14 @@
 # tasks file for anonymous-ftp
 
 - name: Create configuration directory
-  become: yes
+  become: true
   file:
     path: /etc/anonymous-ftp
     mode: 0755
     state: directory
 
 - name: Create uploads directory
-  become: yes
+  become: true
   file:
     path: "{{ anonymous_ftp_incoming_data_dir }}"
     # UID of ftp in docker image
@@ -19,19 +19,19 @@
     state: directory
 
 - name: Configuration files
-  become: yes
+  become: true
   template:
     src: templates/{{ item }}.j2
     dest: /etc/anonymous-ftp/{{ item }}
   # Uses private variable idrftp_anonymous_emails
   with_items:
-  - vsftpd.banner
-  - vsftpd.conf
-  - vsftpd.email_passwords
+    - vsftpd.banner
+    - vsftpd.conf
+    - vsftpd.email_passwords
   register: _anonymous_ftp_config
 
 - name: Install docker-py
-  become: yes
+  become: true
   yum:
     name: docker-python
     state: present
@@ -39,13 +39,16 @@
 - name: Get Docker published ports list
   set_fact:
     anonymous_ftp_published_ports: >
-      {{ anonymous_ftp_published_ports | default([anonymous_ftp_port | string + ':21']) +
+      {{ anonymous_ftp_published_ports |
+         default([anonymous_ftp_port | string + ':21']) +
          [item + ':' + item]
       }}
-  with_sequence: start={{ anonymous_ftp_pasv_min_port }} end={{ anonymous_ftp_pasv_max_port }}
+  with_sequence: >
+    start={{ anonymous_ftp_pasv_min_port }}
+    end={{ anonymous_ftp_pasv_max_port }}
 
 - name: Run docker vsftpd
-  become: yes
+  become: true
   docker_container:
     image: "{{ anonymous_ftp_image }}"
     name: vsftpd
@@ -54,5 +57,5 @@
     restart: "{{ _anonymous_ftp_config | changed }}"
     restart_policy: always
     volumes:
-    - "{{ anonymous_ftp_incoming_data_dir }}:/var/lib/ftp/incoming"
-    - "/etc/anonymous-ftp:/etc/vsftpd:ro"
+      - "{{ anonymous_ftp_incoming_data_dir }}:/var/lib/ftp/incoming"
+      - "/etc/anonymous-ftp:/etc/vsftpd:ro"
