@@ -1,7 +1,7 @@
 Anonymous FTP
 =============
 
-[![Build Status](https://travis-ci.org/ome/ansible-role-anonymous-ftp.svg)](https://travis-ci.org/ome/ansible-role-anonymous-ftp)
+[![Actions Status](https://github.com/ome/ansible-role-anonymous-ftp/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-anonymous-ftp/actions)
 [![Ansible Role](https://img.shields.io/ansible/role/41954.svg)](https://galaxy.ansible.com/ome/anonymous_ftp/)
 
 
