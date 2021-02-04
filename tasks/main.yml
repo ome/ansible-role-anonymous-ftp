@@ -23,6 +23,7 @@
   template:
     src: templates/{{ item }}.j2
     dest: /etc/anonymous-ftp/{{ item }}
+    mode: 0644
   # Uses private variable idrftp_anonymous_emails
   with_items:
     - vsftpd.banner
