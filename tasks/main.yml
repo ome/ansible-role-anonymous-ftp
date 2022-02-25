@@ -55,7 +55,7 @@
     name: vsftpd
     published_ports: "{{ anonymous_ftp_published_ports }}"
     state: started
-    restart: "{{ _anonymous_ftp_config | changed }}"
+    restart: "{{ _anonymous_ftp_config is changed }}"
     restart_policy: always
     volumes:
       - "{{ anonymous_ftp_incoming_data_dir }}:/var/lib/ftp/incoming"
