@@ -5,7 +5,7 @@
 # anonymous_ftp_incoming_data_dir:
 
 # Docker image to use for the FTP server
-anonymous_ftp_image: openmicroscopy/vsftpd-anonymous-upload:0.1.0
+anonymous_ftp_image: openmicroscopy/vsftpd-anonymous-upload:0.2.3
 
 # Group name/id for the uploads data directory
 anonymous_ftp_incoming_group: root
