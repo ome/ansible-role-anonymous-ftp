@@ -4,7 +4,7 @@
   roles:
     - role: ome.docker
 
-    - role: ansible-role-anonymous-ftp
+    - role: ome.anonymous_ftp
       anonymous_ftp_incoming_data_dir: /srv/ftp-incoming
       anonymous_ftp_public_address: 127.0.0.1
       anonymous_ftp_emails:
