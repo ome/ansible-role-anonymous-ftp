@@ -9,5 +9,6 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+  namespace: ome
   role_name: anonymous_ftp
   galaxy_tags: []
