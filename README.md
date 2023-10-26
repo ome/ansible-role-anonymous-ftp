@@ -2,7 +2,7 @@ Anonymous FTP
 =============
 
 [![Actions Status](https://github.com/ome/ansible-role-anonymous-ftp/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-anonymous-ftp/actions)
-[![Ansible Role](https://img.shields.io/ansible/role/41954.svg)](https://galaxy.ansible.com/ome/anonymous_ftp/)
+[![Ansible Role](https://img.shields.io/badge/ansible--galaxy-anonymous_ftp-blue.svg)](https://galaxy.ansible.com/ui/standalone/roles/ome/anonymous_ftp/)
 
 
 Anonymous FTP using VSFTPD in Docker.
