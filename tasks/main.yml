@@ -31,15 +31,7 @@
     - vsftpd.email_passwords
   register: _anonymous_ftp_config
 
-# sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-
 - name: Install docker
-  become: true
-  ansible.builtin.pip:
-    name: docker
-    state: present
-
-- name: Install requests
   become: true
   ansible.builtin.pip:
     name: docker
