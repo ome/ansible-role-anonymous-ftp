@@ -3,14 +3,14 @@
 
 - name: Create configuration directory
   become: true
-  file:
+  ansible.builtin.file:
     path: /etc/anonymous-ftp
     mode: 0755
     state: directory
 
 - name: Create uploads directory
   become: true
-  file:
+  ansible.builtin.file:
     path: "{{ anonymous_ftp_incoming_data_dir }}"
     # UID of ftp in docker image
     owner: 21
@@ -20,7 +20,7 @@
 
 - name: Configuration files
   become: true
-  template:
+  ansible.builtin.template:
     src: templates/{{ item }}.j2
     dest: /etc/anonymous-ftp/{{ item }}
     mode: 0644
@@ -31,10 +31,18 @@
     - vsftpd.email_passwords
   register: _anonymous_ftp_config
 
-- name: Install docker-py
+# sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: Install docker
   become: true
-  yum:
-    name: docker-python
+  ansible.builtin.pip:
+    name: docker
+    state: present
+
+- name: Install requests
+  become: true
+  ansible.builtin.pip:
+    name: docker
     state: present
 
 - name: Get Docker published ports list
@@ -50,7 +58,7 @@
 
 - name: Run docker vsftpd
   become: true
-  docker_container:
+  ansible.builtin.docker_container:
     image: "{{ anonymous_ftp_image }}"
     name: vsftpd
     published_ports: "{{ anonymous_ftp_published_ports }}"
