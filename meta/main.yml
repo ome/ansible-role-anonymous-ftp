@@ -4,11 +4,11 @@ galaxy_info:
   description: Anonymous FTP uploads server
   company: Open Microscopy Environment
   license: BSD
-  min_ansible_version: 2.1
+  min_ansible_version: 2.10
   platforms:
     - name: EL
       versions:
-        - 7
+        - 9
   namespace: ome
   role_name: anonymous_ftp
   galaxy_tags: []
