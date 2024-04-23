@@ -46,7 +46,7 @@
 
 - name: Install docker
   become: true
-  yum:
+  ansible.builtin.dnf:
     name: python3-docker
     state: present
 
