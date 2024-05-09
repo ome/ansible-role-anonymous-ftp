@@ -31,10 +31,23 @@
     - vsftpd.email_passwords
   register: _anonymous_ftp_config
 
+- name: Import a key for epel
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+
+- name: Setup dnf repository, epel
+  become: true
+  ansible.builtin.dnf:
+    update_cache: true
+    name:
+      https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    state: present
+
 - name: Install docker
   become: true
-  ansible.builtin.pip:
-    name: docker
+  ansible.builtin.dnf:
+    name: python3-docker
     state: present
 
 - name: Get Docker published ports list
